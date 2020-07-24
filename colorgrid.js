@@ -37,10 +37,11 @@ class ColorGrid {
         this.coverage = props.coverage || DEFAULT_COVERAGE;
         this.horizontalSquares = props.horizontalSquares || DEFAULT_HORIZONTAL_SQUARES;
         this.verticalSquares = props.verticalSquares || DEFAULT_VERTICAL_SQUARES;
+        this.gridid = Math.random().toString(36).substring(2, 15)
 
         // create table element that will be the grid
         this.gridEl = document.createElement("table");
-        this.gridEl.id = "grid";
+        this.gridEl.id = this.gridid;
         this.gridEl.style.borderCollapse = "collapse";
 
         // make the grid element a child element so that it can resize according to parent
@@ -79,7 +80,7 @@ class ColorGrid {
      */
     updateGrid() {
         // get all the grid cells as an array so it's iterable
-        let cells = Array.from(document.querySelectorAll("#grid td"));
+        let cells = Array.from(document.querySelectorAll(`#${this.gridid} td`));
 
         // clear out all cells
         cells.forEach(cell => cell.style.backgroundColor = "");
