@@ -37,7 +37,7 @@ class ColorGrid {
         this.coverage = props.coverage || DEFAULT_COVERAGE;
         this.horizontalSquares = props.horizontalSquares || DEFAULT_HORIZONTAL_SQUARES;
         this.verticalSquares = props.verticalSquares || DEFAULT_VERTICAL_SQUARES;
-        this.gridid = Math.random().toString(36).substring(2, 15)
+        this.gridid = "colorgrid-" + Math.random().toString(36).substring(2, 15)
 
         // create table element that will be the grid
         this.gridEl = document.createElement("table");
